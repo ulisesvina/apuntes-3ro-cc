@@ -1,4 +1,4 @@
-## Subcampos
+## 1. Subcampos
 
 **Def. 3.1** Un espacio vectorial sobre $K$ (o un $K$-espacio vectorial, $K$=e.v.) es un conjunto $V$ cuyos elementos se llaman vectores junto con dos operaciones $+:V\times V \to V_{(v,w \mapsto v+w)}$, $\cdot: V\times V\to V_{v,w \mapsto vw }$ deben satisfacerse los siguientes ocho axiomas:
 
@@ -19,7 +19,7 @@
 3. $0 = \{ 0 \}$ con la suma de vectores y producto por escalares naturales $_{K}0 \forall \lambda \in K$
 4. $V=K[x] = \{\sum_{i=0}^n a_{i}x^i | _{a_{i} \in K \forall i}^{n \in \mathbb{N} \setminus \{ 0 \}}\}$
 
-## Subespacios vectoriales
+## 2. Subespacios vectoriales
 
 **Def.** Si $_{K}V$ u nsubconjunto $W \subseteq V$ es un subespacio vectorial de V
 
@@ -61,7 +61,7 @@ Si $V_{i} \le _{K}V \forall i \in I \implies \cap_{i \in I} V_{i} \le V$
 **Obs. 2**
 La union de subespacios no necesariamente es subespacio
 
-## Combinaciones Lineales
+## 3. Combinaciones Lineales
 
 **Def. 3.2**
 Sea $V$ un $K$-e.v. y sea $S$ un conjunto de vectores en $V$ ($S \subseteq V$), una comb. lineal de los vectores de $S$ es cualquier vector de la forma
@@ -166,7 +166,7 @@ $$
 2. $S\subseteq T \implies \langle S \rangle \subseteq \mathcal{L}(T)$
 3. $\langle \langle S \rangle \rangle = \langle S \rangle$
 
-## Dependencia e Independencia Lineal
+## 4. Dependencia e Independencia Lineal
 
 **Def. 4.1** Si $_{k}V,$ sea $(V_{i})_{i \in I}$ una familia de vectores en $V$ $(\forall i \in I, v\in V)$. Una comb. lineal de esta forma de vectore ses cualquier vector de la forma
 $$
@@ -253,4 +253,111 @@ Si $\lambda\ne_{0}, w=\sum_{s\in S} ()s \in \mathcal{L}(s)$ ↯
 1. Sup. $S$ l.i. maximal, P.D. $\mathcal{L}(S)=V$, sup. $\exists w \in V : w\not\in \mathcal{L}(S)$
    Por el lema 4.2, sabemos que $S\subset S \cup \{ w \}$ l.i. ↯ $\therefore \mathcal{L}(S)=V \therefore S$  base
 2. Sup. $S$ generador maximal de $V$, sup. $S$ l.i. $\therefore \exists s_{0} \in S : \mathcal{L}(S\setminus \{ s_{0} \})$, ent. $S \subseteq \mathcal{L}(S \setminus \{ s_{0} \}) \therefore \mathcal{L}(S) = V$ (por hip.), $V \subseteq \mathcal{L}\mathcal{L}(S\setminus \{ s_{0} \}) = \mathcal{L}(S\setminus \{ s_{0} \})=V$
-3. 
+
+**Lema 4.4** $T$ generador de $V$
+$$
+S\subseteq T, S \text{ l.i. maximal en } T
+$$
+ Entonces $S$ base de $V$
+
+**Dem.** Observamos que si $T=V$, se cumple el *lema 4.3.1* entonces $S$ base de $V$, en otro caso:
+
+Queremos probar que $T \subseteq \mathcal{L}(S)$. Sea $t\in T$ 
+
+$$
+\begin{cases}
+& S \subseteq \mathcal{L}(S) \text{ "agrandancia"} \\
+& S \subseteq T \implies \mathcal{L}(S) \subseteq \mathcal{L}(T) \text{ monotonia} \\
+& \mathcal{L}(\mathcal{L}(S)) = \mathcal{L}(S) \text{ idenpotencia}
+\end{cases}
+$$
+Sup. $t \not\in \mathcal{L}(S) \therefore S \cup \{ t \}$ l.i. y por *lema 2* $\text{ ↯}$
+$\therefore t \in \mathcal{L}(S) \therefore T\subseteq \mathcal{L}(S)$
+
+## 5. Espacios finitamente generados
+
+$$
+_{v}K \text{ f.g.}^{\text{casi siempre}}
+$$
+**Prop. 5.1** Sea $_{k}V$ f.g., sea $G\subseteq V : \mathcal{L}(G)=V \implies$ si $I\subseteq V$ es l.i., $\#I \le \#G$
+
+**Dem.** Sean $n=\#G, G=\{ v_{1}, \dots, v_{n} \}$, sup. $\{ w_{1}, w_{2},w_{3},\dots,w_{m} \} \subseteq I$
+
+**P.D.** $m\le n$ (propiedad del intercambio, Steinitz)
+Supongamos por contradiccion $m>n$ 
+
+Como $G$ genera, ent. $\mathcal{L}(G) =V$, por ello, $w_{1}$ es una c.l. $\sum_{i=1}^n \lambda_{i}v_{i}$ para algunos $(\lambda_{i})^n_{i=1}$, como $w\ne 0$ (porque un conjunto independiente no puede contener al 0), entonces $\exists j : \lambda_{j}\ne 0$. Tomamos sin perdida de genrealidad $j=1$ (renumerando la $w$ si hace falta)
+
+$$v_{1}=-\frac{1}{\lambda_{1}}w_{1} + \sum_{i=2}^n -\frac{1}{\lambda_{1}}\lambda_i v_i \in \mathcal{L}(w_{1},v_{2},\dots,v_{n})$$
+Sea $G_{1} = \{ w_{1}, w_{2}, \dots, w_{m} \}$, $w_{1} \in \mathcal{L}(G_{1}) \therefore G \subseteq \mathcal{L}(G_{1}) \therefore V= \mathcal{L}(G) \subseteq \mathcal{L}(\mathcal{L}(G_{1})) = \mathcal{L}(G_{1})$
+
+Por ind. supongamos que a partir de $k$ intercambios, con $1\le k < n$ tenemos que
+$$
+G_{k} = \{  w_{1}, w_{2}, \dots, w_{k}, v_{k+1}, v_{n} \}
+$$
+es generador de $V (\mathcal{L}(G_{k})=V)$
+
+Como $W_{K+1} \in \mathcal{L}(G_{R}) = \mathcal{L}(w_{1}, w_{k}, v_{k+1}, \dots, v_{n})$
+
+$$
+W_{R}+1=\sum^k_{i=1} \lambda_{i}w_{i} + \sum^n_{i=k+1} \mu_{i}v_{i}
+$$
+
+$$
+W_{R+1} \not\in \mathcal{L}(w_{1}, \dots, w_{k})
+$$
+
+$$
+\therefore \text{ no toda } \mu_{j}=0 \text{ s.p.g., } \mu_{k+1}\ne 0
+$$
+
+$$
+v_{k+1}= \frac{1}{\mu_{R+1}} \left(w_{R+1} - \sum^k_{i}\mu_{i}v_{i}-\sum^n_{i}\lambda_{i}w_{i}\right)
+$$
+
+$$
+\in \mathcal{L}(G_{K+1}) \text{ con } G_{K+1} = \{ w_{1}, \dots, w_{k}, w_{k+1}, v_{k+2}, \dots, v_{n} \}
+$$
+
+$$
+\therefore G_{K} \subseteq \mathcal{L}(G_{K+1})
+$$
+
+$$
+V=\mathcal{L}(G_{R}) \subseteq \mathcal{L}(\mathcal{L}(G_{K+1}))=\mathcal{L}(G_{K+1})
+$$
+
+$$
+\therefore \mathcal{L}(G_{K+1}) = V
+$$
+dsps. de los intercambios 
+$$
+V=\mathcal{L}(G_{n}), G_{n}=\{ w_{1},w_{2},\dots,w_{n} \}
+$$
+y teniamos $w_{n+1} \in I$
+$$
+\therefore w_{n+1} \in \mathcal{L}(w_{1}, \dots, w_{n})
+$$
+**Prop. 5.2** Sea $_{K}V$ f.g. ($I \subseteq G \subseteq V \begin{cases}\mathcal{L}(G) =V  \\  I \text{ indep.}\end{cases}$, con $G$ no necesariamente finito), ent. existe $\beta$ base de $V$ tal que $I \subseteq \beta \subseteq G$
+
+**Dem.** Sea $m \in \mathbb{N}$ el num. de elementos en algun (existe por hip.) generador finito de $V$ (no necesariamente $G$).
+
+Si $I$ es l.i. max. en $G$, $\beta=I$ base de $V$ (lema 4.4). Si no, $\exists I\prime$ l.i. $I \subset I\prime \subseteq G$.
+
+**Teorema 5.1** Todo $_{K}V$ f.g. tiene alguna base 
+
+**Dem.** Prop. 2 con $I=\varnothing, G=V$
+
+**Teorema 5.2** Si $_{K}V$ f.g., todo $I \subseteq \beta$ se extiende a alguna base
+
+**Dem.** Prop. 2 con $I=I, G=V$
+
+**Teorema 5.3** Si $_{K}V$ f.g., todo conjunto generador contiene alguna base
+
+**Dem.** Prop. 2 con $I=\varnothing$
+
+**Teorema 5.4** Sean $_{K}V$ f.g. y $\beta, \beta\prime$ bases de $V$, ent. $\#\beta = \#\beta\prime$ 
+
+**Dem.** $\#\beta \le \#\beta\prime$ por prop. 1, y $\#\beta\prime \le \#\beta$ igualmente por prop. 1, por tricotomia, deben ser iguales.
+
+**Obs.** Teoremas 1-4 y props. 1 y 2 se valen en general.
