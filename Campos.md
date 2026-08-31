@@ -1,363 +1,170 @@
-## 1. Subcampos
+## 1. Espacios Vectoriales
 
-**Def. 3.1** Un espacio vectorial sobre $K$ (o un $K$-espacio vectorial, $K$=e.v.) es un conjunto $V$ cuyos elementos se llaman vectores junto con dos operaciones $+:V\times V \to V_{(v,w \mapsto v+w)}$, $\cdot: V\times V\to V_{v,w \mapsto vw }$ deben satisfacerse los siguientes ocho axiomas:
+**Definición 1.1**
+Un espacio vectorial sobre un campo $K$ (o un $K$-espacio vectorial) es un conjunto $V$, cuyos elementos se llaman vectores, provisto de dos operaciones:
+1. Suma: $+: V \times V \to V, \quad (v, w) \mapsto v + w$
+2. Producto por escalares: $\cdot: K \times V \to V, \quad (\lambda, v) \mapsto \lambda v$
 
-1. $u+(v+w)=(u+v)+w \forall u,v,w \in V$
-2. $\exists 0 \in V:u+0=0+u=u\forall u\in V$
-3. $\forall v \in V \exists -v\in V:-v+u=u-u=0$
-4. $\forall v,w\in V, v+w=w+v$
-5. $\lambda(\mu v) = (\lambda\mu)v \forall \lambda,\mu,v \in V$
-6. $1w=w|\forall w\in V$
-7. $(\alpha+\beta)v = \alpha v+\beta v \forall \alpha,\beta \in K, v\in V$
-8. $\alpha(u+v) = \alpha u+\alpha v\forall a\in K,\forall u,v\in V$
+Estas operaciones deben satisfacer los siguientes ocho axiomas:
+1. $u + (v + w) = (u + v) + w \quad \forall u, v, w \in V$
+2. $\exists 0 \in V : u + 0 = 0 + u = u \quad \forall u \in V$
+3. $\forall v \in V, \exists -v \in V : -v + v = v - v = 0$
+4. $\forall v, w \in V, v + w = w + v$
+5. $\lambda(\mu v) = (\lambda\mu)v \quad \forall \lambda, \mu \in K, \forall v \in V$
+6. $1v = v \quad \forall v \in V$
+7. $(\alpha + \beta)v = \alpha v + \beta v \quad \forall \alpha, \beta \in K, \forall v \in V$
+8. $\alpha(u + v) = \alpha u + \alpha v \quad \forall \alpha \in K, \forall u, v \in V$
 
-**Not.** ==$_{K}V$ significa que V es un $K$-e.v.==
+**Notación:** $_{K}V$ significa que $V$ es un $K$-espacio vectorial.
 
-**Ejemplos**
-1. $n \in \mathbb{N}, V=K^n = \{ (a_{1},a_{2},\dots,a_{n}) | a_{i} \in K \forall i \}$
-2. $V= _KK$ ($K$-e.v. regular)
-3. $0 = \{ 0 \}$ con la suma de vectores y producto por escalares naturales $_{K}0 \forall \lambda \in K$
-4. $V=K[x] = \{\sum_{i=0}^n a_{i}x^i | _{a_{i} \in K \forall i}^{n \in \mathbb{N} \setminus \{ 0 \}}\}$
+**Ejemplos:**
+*   Para $n \in \mathbb{N}$, el espacio $V = K^n = \{ (a_{1}, a_{2}, \dots, a_{n}) \mid a_{i} \in K \forall i \}$.
+*   $V = {}_{K}K$ (el campo $K$ como espacio vectorial sobre sí mismo).
+*   El espacio trivial $V = \{ 0 \}$ con la suma de vectores y producto por escalares naturales.
+*   El espacio de polinomios $V = K[x] = \left\{ \sum_{i=0}^n a_{i}x^i \mid a_{i} \in K \forall i, n \in \mathbb{N} \cup \{0\} \right\}$.
 
-## 2. Subespacios vectoriales
+---
 
-**Def.** Si $_{K}V$ u nsubconjunto $W \subseteq V$ es un subespacio vectorial de V
+## 2. Subespacios Vectoriales
 
-**Not.** $W \le V$
+**Definición 2.1**
+Sea $_{K}V$. Un subconjunto $W \subseteq V$ es un subespacio vectorial de $V$ (denotado como $W \le V$) si cumple:
+1. $0 \in W$ (lo que equivale a $W \neq \emptyset$).
+2. $u, v \in W \implies u + v \in W$.
+3. $v \in W, \lambda \in K \implies \lambda v \in W$.
 
-1. $0 \in W \equiv W \ne \varnothing$
-2. $u,v \in W \implies u+v=w$
-3. $v\in W, \lambda \in K \implies \lambda v \in W$
+**Observación:** Si $_{K}V$ y $W \le V$, entonces $W$ es un $K$-espacio vectorial con las mismas operaciones de $V$.
 
-**Obs.** Si $_{K}V$ y $W \le V$ entonces $_{K}W$ con las mismas operaciones de $V$.
+**Ejemplos:**
+*   $0 \le V$ y $V \le V$ para cualquier espacio vectorial (subespacios trivial y total).
+*   Si $K = \mathbb{R}$:
+    *   En $\mathbb{R}$, los subespacios son $0$ y $\mathbb{R}$.
+    *   En $\mathbb{R}^2$, son $0$, $\mathbb{R}^2$ y las rectas que pasan por el origen.
+    *   En $\mathbb{R}^3$, son $0$, $\mathbb{R}^3$, y las rectas y planos por el origen.
+*   Matrices cuadradas simétricas: $\text{Sim}_{n\times n}(K) = \{ A = (a_{ij}) \in K^{n\times n} \mid A \text{ es simétrica} \}$.
+*   Polinomios de grado acotado: $K_{n}[x] = \{ p(x) \in K[x] \mid \text{gr}(p) \le n \} \le K[x]$. *(Nota: se define $\text{gr}(0) = -\infty$)*.
+*   Si $K \le L$ es una extensión de campos, entonces $_{K}L$ es espacio vectorial y $K \le L$.
+*   El espacio de funciones $\mathbb{R}^{[a,b]} = \{ f: [a,b] \to \mathbb{R} \}$.
+*   Para un conjunto $S$, el espacio de funciones de soporte finito: $K^{(S)} = \{ f: S \to K \mid f(x) = 0 \text{ para casi todo } x \in S \}$.
 
-**Ejemplos**
+**Proposición 2.1**
+Si $V_{i} \le V$ para todo $i \in I$, entonces $\bigcap_{i \in I} V_{i} \le V$.
 
-1. $0 \le V, V\le V$ para cualquier espacio vectorial en cualquier campo (subespacios trivial y total).
-2. Si $K = \mathbb{R}$, sabemos que los subespacios de
-	1. $_{\mathbb{R}}\mathbb{R}$ son $0\le\mathbb{R}$ y $\mathbb{R} \le \mathbb{R}$
-	2. $_{\mathbb{R}}\mathbb{R}^2$ son igualmente $0\le\mathbb{R}^2$ y $\mathbb{R}^2 \le \mathbb{R}^2$, como las rectas por el origen
-	3. $_{\mathbb{R}}\mathbb{R}^3$ son igualmente $0 \le \mathbb{R}^3$ y $\mathbb{R}^3 \le \mathbb{R}^3$, como las rectas y planos por el origen
-	4. $_{\mathbb{R}}\mathbb{R}^n$ son $0 \le \mathbb{R}^n$ y $\mathbb{R}^n \le \mathbb{R}^n$
-3. Matrices cuadradas simetricas. $Sim_{n\times m}(K) = \{ A = (a_{i_{j}}) \in K^{n\times m} | \text{A simetrica}\}$
-4. $K_{n}[x] = \{ p(x) \in K[x] | gr(p) \le n \} \ne K[x]$
-5. Si $K \le L, _{K}L$ y $_{K}K \le _{K}L$
-6. Si $K=\mathbb{R}$ y $V = \mathbb{R}^{[a,b]} = \{ f: [a,b] \to \mathbb{R} | f \text{ funcion} \}$.
-7. Si $S$ conjunto, $K^{(S)} = \{ f: S \to K | f(x) = 0 \dot{\forall}x \in S \}$ (las funciones de soporte finito de $S$ a $K$). $K^{(S)} \le K$
+**Demostración de la Proposición 2.1**
+Sea $W = \bigcap_{i \in I} V_{i}$.
+1. Como $0 \in V_{i}$ para todo $i \in I$, entonces $0 \in W$.
+2. Si $v, w \in W$, entonces $v, w \in V_{i}$ para todo $i$. Al ser subespacios, $v+w \in V_{i}$ para todo $i$, por lo que $v+w \in W$.
+3. Si $v \in W$ y $\lambda \in K$, entonces $v \in V_{i}$ para todo $i$. Así, $\lambda v \in V_{i}$ para todo $i$, concluyendo que $\lambda v \in W$. $\blacksquare$
 
-==**Nota**== $gr(0) = -\infty$
+*(Nota: La unión de subespacios no necesariamente es un subespacio).*
 
-En sup. 1 aparecen como ==espacios generados==
-
-**Prop. 1**
-Si $V_{i} \le _{K}V \forall i \in I \implies \cap_{i \in I} V_{i} \le V$
-
-**Dem.**
-1. $0 \in V_{i} \forall i \in I \implies 0 \in W$
-2. $\therefore v+w \in V_{i} \forall i \in I$
-3. $\therefore v+w \in W$
-4. $v\in W, \lambda \in K, v \in V_{i} \forall i \in I \land \lambda v\in V_{i}\forall i \in I\therefore \lambda v \in W$
-
-**Obs. 2**
-La union de subespacios no necesariamente es subespacio
+---
 
 ## 3. Combinaciones Lineales
 
-**Def. 3.2**
-Sea $V$ un $K$-e.v. y sea $S$ un conjunto de vectores en $V$ ($S \subseteq V$), una comb. lineal de los vectores de $S$ es cualquier vector de la forma
+**Definición 3.1**
+Sea $V$ un $K$-espacio vectorial y $S \subseteq V$. Una **combinación lineal** de los vectores de $S$ es cualquier vector de la forma:
+$$ v = \sum_{s \in S} \lambda_{s} s \quad \text{donde } \lambda_{s} \in K $$
+De forma implícita, se asume que $\lambda_{s} = 0$ para casi todo $s \in S$ (soporte finito).
 
-$$
-v=\sum_{s\in S} \lambda _{s}S : \lambda_{s}\in K \forall s \in S
-$$
-de forma implicita, $\lambda_{s}=0\dot{\forall} s \in S$.
+**Notación:** $\mathcal{L}(S) = \{ v \in V \mid v \text{ es combinación lineal de los elementos de } S \}$. A este conjunto también se le denota como $\langle S \rangle$ y se le llama el **subespacio generado** por $S$. Si $W = \langle S \rangle$, se dice que $S$ es un sistema de generadores de $W$. Si existe un $S$ finito tal que $W = \langle S \rangle$, se dice que $W$ es finitamente generado.
 
-**Ejemplo** Todo polinomio $f \in K[x]$ es comb. lineal de las potencias de $x: S = \{ 1,x,x^2, \dots \}$ en efecto, $f=\sum^{\infty}_{i=0} a_{i}x^i$ con $^{a_{i}\in K\forall i}_{a_{i}=0\dot{\forall}i}$
-**Not.** Si $S \subset V \implies$
-$$
-\mathcal{L}(s)=\{ v \in V |v \text{ es comb. lineal de los elementos de S} \}
-$$
+**Lema 3.1** $S \subseteq \mathcal{L}(S)$ y $0 \in \mathcal{L}(S)$.
+**Lema 3.2** Si $W \subseteq V$, entonces $W \le V \iff \mathcal{L}(W) \subseteq W \iff W = \mathcal{L}(W)$.
+**Lema 3.3** Si $S \subseteq V$, entonces $\mathcal{L}(S) \le V$.
+**Proposición 3.1** Si $S \subseteq V$, $\mathcal{L}(S)$ es el mínimo subespacio de $V$ que contiene a $S$.
+**Proposición 3.2** Si $S \subseteq V$, entonces $\mathcal{L}(S) = \bigcap \{ W \le V \mid W \supseteq S \}$.
 
-**Lema 1**
-$$
-S \subseteq \mathcal{L}(s) \land 0 \in \mathcal{L}(s)
-$$
-**Lema 2**
-Si $W\subseteq V \implies$
-$$
-W\le V \iff \mathcal{L}(W) \subseteq W \left(\iff W = \mathcal{L}(W)\right)
-$$
-**Dem.** $\implies$
+**Demostración del Lema 3.2**
+$\implies$ Si $W \le V$, sabemos que $0 \in W$ y $W + W \subseteq W$. Sea $v \in \mathcal{L}(W)$, entonces $v = \sum_{x \in W} \lambda_{x} x$. Como $W$ es cerrado bajo suma y producto escalar, esta suma finita pertenece a $W$. Por tanto, $\mathcal{L}(W) \subseteq W$.
+$\impliedby$ Si $\mathcal{L}(W) \subseteq W$, se cumple que para cualquier $\lambda \in K$, $\lambda W \subseteq \mathcal{L}(W) \subseteq W$. Igualmente, $0 \in \mathcal{L}(W) \subseteq W$ y $W + W \subseteq \mathcal{L}(W) \subseteq W$. Por lo tanto, $W \le V$. $\blacksquare$
 
-$$
-0\in W, W+W\subseteq W
-$$
+**Demostración del Lema 3.3**
+Por el Lema 3.1, $0 \in \mathcal{L}(S)$. Si tomamos dos elementos $\sum \lambda_{s} s$ y $\sum \mu_{s} s$ en $\mathcal{L}(S)$, su suma es $\sum (\lambda_{s} + \mu_{s}) s$, que sigue siendo una combinación lineal finita y, por tanto, pertenece a $\mathcal{L}(S)$. De manera análoga se cumple el producto por escalares. Así, $\mathcal{L}(S) \le V$. $\blacksquare$
 
-Sea $v\in \mathcal{L}(W) \therefore v=\sum_{x\in W} \lambda_{x}x$
+**Demostración de la Proposición 3.1**
+Por el Lema 3.3, $\mathcal{L}(S) \le V$. Por el Lema 3.1, $S \subseteq \mathcal{L}(S)$.
+Sea $W \le V$ tal que $S \subseteq W$. Como $W$ es subespacio, contiene todas las combinaciones lineales de sus elementos. Al contener a $S$, también contiene a todas las combinaciones lineales de $S$, es decir, $\mathcal{L}(S) \subseteq W$. $\blacksquare$
 
-**Dem** $\Longleftarrow$
-Si $\mathcal{L}(W) \subseteq W \implies \lambda W\subseteq \mathcal{L}(W)\subseteq W$
+**Demostración de la Proposición 3.2**
+Consecuencia directa de la Proposición 3.1, ya que $\mathcal{L}(S)$ es la intersección de todos los subespacios que contienen a $S$. $\blacksquare$
 
-Igualmente,
-
-$$
-0 \in \mathcal{L}(W) \subseteq W
-$$
-
-$$
-W+W\subseteq \mathcal{L}(W)\subseteq W
-$$
-
-$$
-\therefore W \le V
-$$
-**Lema 3**
-Si $S\subseteq_{k}V, \therefore \mathcal{L}(S) \le V$
-
-**Dem.**
-
-$$
-0\in \mathcal{L}(S) \text{ (lema 1)}
-$$
-
-$$
-\sum_{s\in S} \lambda_{s}S, \sum_{s \in S}\mu_{s}s \in \mathcal{L}(S)
-$$
-
-$$
-\sum\lambda_{s}s\sum\mu_{s}s = \sum_{s\in S} (\lambda_{s}+\mu_{s})s \in \mathcal{L}(S)
-$$
-**Def. 3.3** Si $S\subseteq V$, $\mathcal{L}(S)$ se llama el subespacio vectorial de $V$ generado por $S$
-
-**Not.** $\langle S \rangle$
-
-**Prop. 2** Si $S\subset V, \langle S \rangle$ es el minimo subespacio de $V$ que contiene a $S$
-
-**Dem.**
-
-
-$$
-\mathcal{L}(S) \le V \text{ (lema 3)}
-$$
-
-$$
-\mathcal{L}(S) \ge S \text{ (lema 1)}
-$$
-Sea $W\le V : S \subset W \therefore \mathcal{L}(S) \le W$
-$$
-\mathcal{L}(S) \le \mathcal{L}(W)
-$$
-**Prop 3** Si $S\subseteq V, \mathcal{L}(S)=\cap \{ W\le V : W \supseteq S \}$
-**Dem.**
-
-Como $\mathcal{L}(S) \le V$ y $S\subseteq \mathcal{L}(S)$
-
-**Def. 3.4** Si $S\subseteq V$ y $W=\mathcal{L}(S)\le V$
-1. $W$ es generado por $S$
-2. $S$ es un conjunto (o sistema) de generadores de $W$
-3. $W$ es finitamente generado si $\exists S \text{ finito} : W = \mathcal{L}(S)$
-
-**Ejemplo**
-
-$$
- K_{n}[x] = \langle 1,x,x^2, \dots, x^n \rangle
-$$
-**Ejemplo**
-1. $S\le \langle S \rangle$
-2. $S\subseteq T \implies \langle S \rangle \subseteq \mathcal{L}(T)$
-3. $\langle \langle S \rangle \rangle = \langle S \rangle$
+---
 
 ## 4. Dependencia e Independencia Lineal
 
-**Def. 4.1** Si $_{k}V,$ sea $(V_{i})_{i \in I}$ una familia de vectores en $V$ $(\forall i \in I, v\in V)$. Una comb. lineal de esta forma de vectore ses cualquier vector de la forma
-$$
-v=\sum_{i\in I} \lambda_{i}v_{i}
-$$
-donde
-$$
-\lambda_{i} \in K \forall i,\lambda_{i}=0\dot\forall i 
-$$
-**Not.**
+**Definiciones**
+*   **Linealmente Dependiente (l.d.):** Una familia $(v_{i})_{i \in I}$ es l.d. si para algún $i \in I$, el vector $v_{i}$ es combinación lineal de los demás ($v_{j}$ con $j \neq i$).
+*   **Linealmente Independiente (l.i.):** Una familia es l.i. si no es l.d.
+*   **Base:** Un conjunto $\beta \subseteq V$ es una base de $V$ si $\beta$ es l.i. y $\mathcal{L}(\beta) = V$.
 
-$$
-\mathcal{L}((V_{i})_{i \in I}) = \{  v \in V | v \text{ c.l. de } (v_{i})_{i\in I} \}
-$$
-**Obs. 4.1**
-La ==*def 4.1*== $\sim\equiv$ a la ==*def. 3.2*== 
+**Lema 4.1** Un conjunto $S$ es linealmente independiente $\iff$ si $\sum_{s \in S} \lambda_{s} s = 0$, entonces $\lambda_{s} = 0$ para todo $s \in S$. (Un conjunto es linealmente dependiente si existe una relación de dependencia lineal no trivial donde al menos un escalar es distinto de cero).
+**Lema 4.2** Si $S \subseteq V$ es l.i. y $w \in V \setminus \langle S \rangle$, entonces $S \cup \{ w \}$ es l.i.
+**Lema 4.3** 
+1. Si $S \subseteq V$ es un conjunto l.i. maximal, entonces $S$ es base de $V$.
+2. Si $S \subseteq V$ es un generador minimal de $V$, entonces $S$ es base de $V$.
+3. $S$ es base de $V \iff S$ es l.i. maximal $\iff S$ es generador minimal.
+**Lema 4.4** Si $T$ es generador de $V$ y $S \subseteq T$ es un conjunto l.i. maximal en $T$, entonces $S$ es base de $V$.
 
-**Def. 4.2** Una familia $(v_{i})_{i\in I}$ es linealmente dependiente (l.d.) $\iff$ si para alguna $i \in I, v_{i}$ es c.l. de las otras $v_{j} : j\ne i$
+**Demostración del Lema 4.1**
+$\implies$ Supongamos que $S$ es l.i. y $\sum_{s \in S} \lambda_{s} s = 0$. Por demostrar que $\lambda_{s} = 0$. Si existiera algún $\lambda_{s_0} \neq 0$, podríamos despejar $s_0$:
+$$ s_0 = -\frac{1}{\lambda_{s_0}} \left( \sum_{s \neq s_0} \lambda_{s} s \right) $$
+Esto haría a $s_0$ combinación lineal del resto, contradiciendo la independencia.
+$\impliedby$ Supongamos que la única solución a $\sum \lambda_{s} s = 0$ es la trivial. Si $S$ fuera dependiente, algún $s_0$ sería combinación del resto: $s_0 = \sum_{s \neq s_0} \lambda_{s} s$. Restando $s_0$, tendríamos una combinación lineal igual a cero con el coeficiente de $s_0$ igual a $-1 \neq 0$, lo cual es una contradicción. $\blacksquare$
 
-**Def. 4.3** $(v_{i})_{i \in I}$ es linealmente independiente (l.i.) $\iff$ no es l.d.
+**Demostración del Lema 4.2**
+Supongamos que $\sum_{s \in S} \lambda_{s} s + \lambda w = 0$. Si $\lambda = 0$, entonces $\sum_{s \in S} \lambda_{s} s = 0$, y por ser $S$ independiente, todos los $\lambda_{s} = 0$. Si $\lambda \neq 0$, podríamos despejar $w = \sum_{s \in S} (-\lambda_{s}/\lambda) s$, lo que implicaría que $w \in \mathcal{L}(S)$, contradiciendo la hipótesis. Por ende, la unión es l.i. $\blacksquare$
 
-**Def 4.4** Si $S\subseteq V$ y $W = \langle S \rangle \le V$,
-1. $W$ es generado por $S$
-2. $S$ e sun conjunto (o sistema) de generadores $W$
-3. $W$ es finitamente generado si $\exists S \text{ finito } : W = \langle S \rangle$
+**Demostración del Lema 4.3**
+1. Supongamos que $S$ es l.i. maximal. Por demostrar que $\mathcal{L}(S) = V$. Si existiera $w \in V$ tal que $w \notin \mathcal{L}(S)$, por el Lema 4.2, $S \cup \{ w \}$ sería l.i. Esto contradice la maximalidad de $S$. Luego, $\mathcal{L}(S) = V$ y $S$ es base.
+2. Supongamos que $S$ es generador minimal. Si no fuera l.i., existiría $s_0 \in S$ tal que $s_0 \in \mathcal{L}(S \setminus \{ s_0 \})$. Esto implica que $\mathcal{L}(S \setminus \{ s_0 \}) = \mathcal{L}(S) = V$, lo cual contradice que $S$ sea minimal. $\blacksquare$
 
-**Obs. 4.2** Si $(V_{i})_{i \in I}$ es l.i. $\implies$ no tiene repeticiones.
+**Demostración del Lema 4.4**
+Si $T = V$, se cumple el Lema 4.3. Queremos probar que $T \subseteq \mathcal{L}(S)$. Para todo $t \in T$, supongamos que $t \notin \mathcal{L}(S)$. Entonces $S \cup \{ t \}$ sería l.i. dentro de $T$, lo que contradice que $S$ sea maximal en $T$. Por lo tanto, $t \in \mathcal{L}(S)$, lo que implica que $T \subseteq \mathcal{L}(S)$. Como $\mathcal{L}(T) = V$, y $\mathcal{L}(S) = \mathcal{L}(T)$, concluimos que $S$ genera a $V$ y es base. $\blacksquare$
 
-**Lema 4.1** Un conjunto es l.i. $\iff$
-$$
-\sum_{x\in S} \lambda_{x}x = 0 \implies \lambda_{x} = 0 \forall a \in S
-$$
+---
 
-**Dem. $\implies$** Sup. $S$ l.i. y sup. $\sum_{x\in S}\lambda_{x}x =0$
+## 5. Espacios Finitamente Generados
 
-Sea $s\in S$ pd $\lambda_{s}=0$
+*(Nota: En adelante, consideramos espacios vectoriales finitamente generados).*
 
-Sup. $\lambda_{s} \ne 0$,
+**Proposición 5.1 (Teorema de Intercambio de Steinitz)**
+Sea $V$ un espacio finitamente generado y $G \subseteq V$ tal que $\mathcal{L}(G) = V$. Si $I \subseteq V$ es un conjunto linealmente independiente, entonces la cardinalidad de $I$ es menor o igual a la cardinalidad de $G$ ($\#I \le \#G$).
+**Proposición 5.2**
+Si $V$ es finitamente generado y tenemos $I \subseteq G \subseteq V$ donde $I$ es l.i. y $\mathcal{L}(G) = V$, entonces existe una base $\beta$ de $V$ tal que $I \subseteq \beta \subseteq G$.
 
-$$
-S = \frac{-1}{\lambda _{s}} \left( \sum_{x\ne s} \lambda_{x}x \right)
-$$
+**Demostración de la Proposición 5.1**
+Sean $n = \#G$, con $G = \{ v_{1}, \dots, v_{n} \}$, y supongamos un subconjunto finito de $I$: $\{ w_{1}, w_{2}, \dots, w_{m} \} \subseteq I$. Procederemos por reducción al absurdo suponiendo $m > n$.
+Como $G$ genera a $V$, $w_{1}$ es combinación lineal $\sum_{i=1}^n \lambda_{i} v_{i}$. Como $w_{1} \neq 0$ (por ser de un conjunto l.i.), existe algún $j$ tal que $\lambda_{j} \neq 0$. Sin pérdida de generalidad, tomemos $j = 1$. Despejando $v_{1}$:
+$$ v_{1} = -\frac{1}{\lambda_{1}} w_{1} - \sum_{i=2}^n \frac{\lambda_{i}}{\lambda_{1}} v_{i} $$
+Esto significa que $v_1 \in \mathcal{L}(w_1, v_2, \dots, v_n)$. Sea $G_{1} = \{ w_{1}, v_{2}, \dots, v_{n} \}$. Se cumple que $G \subseteq \mathcal{L}(G_{1})$, por lo tanto $\mathcal{L}(G_{1}) = V$.
+Por inducción, supongamos que tras $k$ intercambios ($1 \le k < n$), el conjunto:
+$$ G_{k} = \{ w_{1}, \dots, w_{k}, v_{k+1}, \dots, v_{n} \} $$
+es generador de $V$. Como $w_{k+1} \in V = \mathcal{L}(G_{k})$, lo podemos escribir como:
+$$ w_{k+1} = \sum_{i=1}^k \lambda_{i} w_{i} + \sum_{i=k+1}^n \mu_{i} v_{i} $$
+Como $I$ es independiente, $w_{k+1} \notin \mathcal{L}(w_{1}, \dots, w_{k})$, por lo que no todos los $\mu_{i}$ pueden ser cero. Sin pérdida de generalidad, $\mu_{k+1} \neq 0$. Despejando $v_{k+1}$:
+$$ v_{k+1} = \frac{1}{\mu_{k+1}} \left( w_{k+1} - \sum_{i=1}^k \lambda_{i} w_{i} - \sum_{i=k+2}^n \mu_{i} v_{i} \right) $$
+Esto muestra que $v_{k+1} \in \mathcal{L}(G_{k+1})$ donde $G_{k+1} = \{ w_{1}, \dots, w_{k+1}, v_{k+2}, \dots, v_{n} \}$. De nuevo, $\mathcal{L}(G_{k+1}) = V$.
+Después de $n$ intercambios, tendríamos $G_{n} = \{ w_{1}, w_{2}, \dots, w_{n} \}$ generando a $V$. Pero como asumimos $m > n$, tendríamos un $w_{n+1} \in I$. Esto implicaría que $w_{n+1} \in \mathcal{L}(w_{1}, \dots, w_{n})$, lo cual es una contradicción directa con la independencia lineal de $I$. Por lo tanto, $m \le n$. $\blacksquare$
 
-**Dem. $\Longleftarrow$** Sup. p.d. $S$ l.i.
-$S_{0} \in \mathcal{L}(S \setminus \{  s_{0} \})$
-$S_{0} = \sum_{x\in S; x\ne S_{0}} \lambda_{x}x$
+**Demostración de la Proposición 5.2**
+Si $I$ es un subconjunto l.i. maximal en $G$, por el Lema 4.4, $\beta = I$ es base de $V$. Si no lo es, existe un conjunto $I'$ l.i. tal que $I \subset I' \subseteq G$. Por la Proposición 5.1, el tamaño de cualquier conjunto independiente está acotado por la cardinalidad de cualquier generador finito, garantizando que este proceso de añadir elementos termine, arrojando una base. $\blacksquare$
 
-**Corolario** $S$ es l.d. $\iff \exists (\lambda_{s})_{s \in S}$
+---
 
-$$
-\sum_{s\in S} \lambda_{s} S = 0 \land \{  \lambda_{s} \} \ne \{ 0 \}
-$$
-esto quiere decir que no todo $\lambda_{s} =0$. Llamado una rel. de dependencia lineal.
+**Teorema 5.1** Todo espacio vectorial finitamente generado tiene al menos una base.
+**Teorema 5.2** Si $V$ es finitamente generado, todo conjunto l.i. $I$ se puede extender a una base.
+**Teorema 5.3** Si $V$ es finitamente generado, todo conjunto generador contiene alguna base.
+**Teorema 5.4** Sean $\beta, \beta'$ bases de $V$ (finitamente generado). Entonces $\#\beta = \#\beta'$.
 
-**Ejercicio 4.1** Sean $S,T \subseteq V, S \subseteq T$, demostrar
-1. Si $S$ genera a todo $V$, $\mathcal{L}(S)= V \implies \mathcal{L}(T) = V$
-2. $T$ l.i. $\implies$ $S$ l.i.
+**Demostración del Teorema 5.1**
+Aplicamos la Proposición 5.2 tomando $I = \emptyset$ y $G = V$. $\blacksquare$
 
-**Lema 4.2** Si $S\subseteq V$ es l.i. y $w\in V\setminus \langle S \rangle \implies S \cup \{ w \}$ es l.i.
+**Demostración del Teorema 5.2**
+Aplicamos la Proposición 5.2 tomando $I = I$ (el conjunto l.i. dado) y $G = V$. $\blacksquare$
 
-**Dem.** Supongamos que $\sum_{s\in S} \lambda_{s}s + \lambda w = 0$
+**Demostración del Teorema 5.3**
+Aplicamos la Proposición 5.2 tomando $I = \emptyset$ y $G$ igual al conjunto generador dado. $\blacksquare$
 
-Si $\lambda=0, \sum_{s\in S} \lambda_{s}s = 0 \therefore \lambda_{s} = 0 \forall s\in S$ ($s$ l.i.) 
-
-Si $\lambda\ne_{0}, w=\sum_{s\in S} ()s \in \mathcal{L}(s)$ ↯
-
-**Def 4.5** Una base de $_{K}V$ es un conjunto $\beta \subseteq V:$
-1. $\beta$ l.i.
-2. $\mathcal{L}(\beta)=V$
-
-**Ejemplos**
-1. $\beta=\varnothing$ es base de $V=0$
-2. $\beta=\{ E_{1},E_{2}, \dots, E_{n} \}$ es base de $K^n, n \in \mathbb{N}$
-   $= \{ e_{1},e_{2},\dots,e^n \}$
-3. $\beta=\{ 1,x,x^2,\dots,x^n,x^{n+1} \}$ es base de $V = K[x]$
-
-**Lema 4.3**
-1. Si $S \subseteq V$ l.i. maximal$^*$ $\implies S$ base de $V$
-   $^*: S \subset S\prime \implies S\prime$ ld.
-2. Si $S\subseteq V$ es un generador minimal de $V \implies S$ base de $V$.
-3. $S$ base de $V \iff S$ es base independiente maximal de $V \iff S$ generador minimal de $V$
-
-**Dem.**
-1. Sup. $S$ l.i. maximal, P.D. $\mathcal{L}(S)=V$, sup. $\exists w \in V : w\not\in \mathcal{L}(S)$
-   Por el lema 4.2, sabemos que $S\subset S \cup \{ w \}$ l.i. ↯ $\therefore \mathcal{L}(S)=V \therefore S$  base
-2. Sup. $S$ generador maximal de $V$, sup. $S$ l.i. $\therefore \exists s_{0} \in S : \mathcal{L}(S\setminus \{ s_{0} \})$, ent. $S \subseteq \mathcal{L}(S \setminus \{ s_{0} \}) \therefore \mathcal{L}(S) = V$ (por hip.), $V \subseteq \mathcal{L}\mathcal{L}(S\setminus \{ s_{0} \}) = \mathcal{L}(S\setminus \{ s_{0} \})=V$
-
-**Lema 4.4** $T$ generador de $V$
-$$
-S\subseteq T, S \text{ l.i. maximal en } T
-$$
- Entonces $S$ base de $V$
-
-**Dem.** Observamos que si $T=V$, se cumple el *lema 4.3.1* entonces $S$ base de $V$, en otro caso:
-
-Queremos probar que $T \subseteq \mathcal{L}(S)$. Sea $t\in T$ 
-
-$$
-\begin{cases}
-& S \subseteq \mathcal{L}(S) \text{ "agrandancia"} \\
-& S \subseteq T \implies \mathcal{L}(S) \subseteq \mathcal{L}(T) \text{ monotonia} \\
-& \mathcal{L}(\mathcal{L}(S)) = \mathcal{L}(S) \text{ idenpotencia}
-\end{cases}
-$$
-Sup. $t \not\in \mathcal{L}(S) \therefore S \cup \{ t \}$ l.i. y por *lema 2* $\text{ ↯}$
-$\therefore t \in \mathcal{L}(S) \therefore T\subseteq \mathcal{L}(S)$
-
-## 5. Espacios finitamente generados
-
-$$
-_{v}K \text{ f.g.}^{\text{casi siempre}}
-$$
-**Prop. 5.1** Sea $_{k}V$ f.g., sea $G\subseteq V : \mathcal{L}(G)=V \implies$ si $I\subseteq V$ es l.i., $\#I \le \#G$
-
-**Dem.** Sean $n=\#G, G=\{ v_{1}, \dots, v_{n} \}$, sup. $\{ w_{1}, w_{2},w_{3},\dots,w_{m} \} \subseteq I$
-
-**P.D.** $m\le n$ (propiedad del intercambio, Steinitz)
-Supongamos por contradiccion $m>n$ 
-
-Como $G$ genera, ent. $\mathcal{L}(G) =V$, por ello, $w_{1}$ es una c.l. $\sum_{i=1}^n \lambda_{i}v_{i}$ para algunos $(\lambda_{i})^n_{i=1}$, como $w\ne 0$ (porque un conjunto independiente no puede contener al 0), entonces $\exists j : \lambda_{j}\ne 0$. Tomamos sin perdida de genrealidad $j=1$ (renumerando la $w$ si hace falta)
-
-$$v_{1}=-\frac{1}{\lambda_{1}}w_{1} + \sum_{i=2}^n -\frac{1}{\lambda_{1}}\lambda_i v_i \in \mathcal{L}(w_{1},v_{2},\dots,v_{n})$$
-Sea $G_{1} = \{ w_{1}, w_{2}, \dots, w_{m} \}$, $w_{1} \in \mathcal{L}(G_{1}) \therefore G \subseteq \mathcal{L}(G_{1}) \therefore V= \mathcal{L}(G) \subseteq \mathcal{L}(\mathcal{L}(G_{1})) = \mathcal{L}(G_{1})$
-
-Por ind. supongamos que a partir de $k$ intercambios, con $1\le k < n$ tenemos que
-$$
-G_{k} = \{  w_{1}, w_{2}, \dots, w_{k}, v_{k+1}, v_{n} \}
-$$
-es generador de $V (\mathcal{L}(G_{k})=V)$
-
-Como $W_{K+1} \in \mathcal{L}(G_{R}) = \mathcal{L}(w_{1}, w_{k}, v_{k+1}, \dots, v_{n})$
-
-$$
-W_{R}+1=\sum^k_{i=1} \lambda_{i}w_{i} + \sum^n_{i=k+1} \mu_{i}v_{i}
-$$
-
-$$
-W_{R+1} \not\in \mathcal{L}(w_{1}, \dots, w_{k})
-$$
-
-$$
-\therefore \text{ no toda } \mu_{j}=0 \text{ s.p.g., } \mu_{k+1}\ne 0
-$$
-
-$$
-v_{k+1}= \frac{1}{\mu_{R+1}} \left(w_{R+1} - \sum^k_{i}\mu_{i}v_{i}-\sum^n_{i}\lambda_{i}w_{i}\right)
-$$
-
-$$
-\in \mathcal{L}(G_{K+1}) \text{ con } G_{K+1} = \{ w_{1}, \dots, w_{k}, w_{k+1}, v_{k+2}, \dots, v_{n} \}
-$$
-
-$$
-\therefore G_{K} \subseteq \mathcal{L}(G_{K+1})
-$$
-
-$$
-V=\mathcal{L}(G_{R}) \subseteq \mathcal{L}(\mathcal{L}(G_{K+1}))=\mathcal{L}(G_{K+1})
-$$
-
-$$
-\therefore \mathcal{L}(G_{K+1}) = V
-$$
-dsps. de los intercambios 
-$$
-V=\mathcal{L}(G_{n}), G_{n}=\{ w_{1},w_{2},\dots,w_{n} \}
-$$
-y teniamos $w_{n+1} \in I$
-$$
-\therefore w_{n+1} \in \mathcal{L}(w_{1}, \dots, w_{n})
-$$
-**Prop. 5.2** Sea $_{K}V$ f.g. ($I \subseteq G \subseteq V \begin{cases}\mathcal{L}(G) =V  \\  I \text{ indep.}\end{cases}$, con $G$ no necesariamente finito), ent. existe $\beta$ base de $V$ tal que $I \subseteq \beta \subseteq G$
-
-**Dem.** Sea $m \in \mathbb{N}$ el num. de elementos en algun (existe por hip.) generador finito de $V$ (no necesariamente $G$).
-
-Si $I$ es l.i. max. en $G$, $\beta=I$ base de $V$ (lema 4.4). Si no, $\exists I\prime$ l.i. $I \subset I\prime \subseteq G$.
-
-**Teorema 5.1** Todo $_{K}V$ f.g. tiene alguna base 
-
-**Dem.** Prop. 2 con $I=\varnothing, G=V$
-
-**Teorema 5.2** Si $_{K}V$ f.g., todo $I \subseteq \beta$ se extiende a alguna base
-
-**Dem.** Prop. 2 con $I=I, G=V$
-
-**Teorema 5.3** Si $_{K}V$ f.g., todo conjunto generador contiene alguna base
-
-**Dem.** Prop. 2 con $I=\varnothing$
-
-**Teorema 5.4** Sean $_{K}V$ f.g. y $\beta, \beta\prime$ bases de $V$, ent. $\#\beta = \#\beta\prime$ 
-
-**Dem.** $\#\beta \le \#\beta\prime$ por prop. 1, y $\#\beta\prime \le \#\beta$ igualmente por prop. 1, por tricotomia, deben ser iguales.
-
-**Obs.** Teoremas 1-4 y props. 1 y 2 se valen en general.
+**Demostración del Teorema 5.4**
+Como $\beta$ es independiente y $\beta'$ es generador, por la Proposición 5.1 se tiene $\#\beta \le \#\beta'$. Inviertiendo los roles, como $\beta'$ es independiente y $\beta$ es generador, se tiene $\#\beta' \le \#\beta$. Por tricotomía, $\#\beta = \#\beta'$. $\blacksquare$
