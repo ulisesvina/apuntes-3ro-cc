@@ -168,3 +168,61 @@ Aplicamos la Proposición 5.2 tomando $I = \emptyset$ y $G$ igual al conjunto ge
 
 **Demostración del Teorema 5.4**
 Como $\beta$ es independiente y $\beta'$ es generador, por la Proposición 5.1 se tiene $\#\beta \le \#\beta'$. Inviertiendo los roles, como $\beta'$ es independiente y $\beta$ es generador, se tiene $\#\beta' \le \#\beta$. Por tricotomía, $\#\beta = \#\beta'$. $\blacksquare$
+
+**Definición 5.1** La dim. de $V$ es $dimV=\#\beta, \beta$ para cualquier base de $V$. Si $\beta$ es finita, $dimV=\#\beta=n\in \mathbb{N}$, y si $\beta$ es infinita, $dimV\not\in \mathbb{N}$ y decimos simplemente que $dimV=\infty$.
+
+**Proposición 5.3** $V$ f.g. $\iff dimV<\infty (\iff dim\mathbb{N})$ 
+
+**Demostración $(\implies)$**
+Si $V$ f.g., ent. $\exists S \subseteq V$ finito tal que $\mathcal{L}(S)=V$.
+$\therefore \exists \beta \subseteq S$ base $\therefore \beta$ finita $\therefore dimV<\infty$ $\blacksquare$
+
+**Demostración $(\impliedby)$**
+Si $dimV \in \mathbb{N} \implies\exists$ base $\beta$ finita $\therefore\beta$ es un generador finito. $\blacksquare$
+
+**Proposición  5.4** Si $dimV\in \mathbb{N}$ ent.:
+1. Todo subconjunto l.i. $I\subseteq V$ con $\#I-n$ es base
+2. Todo generador $G\subseteq V$ con $\#G=n$ es base
+
+**Demostración 5.4.1**
+*Teorema 5.2 $\star$*
+
+**Demostración 5.4.2**
+*Prop. 5.3* $\star$
+
+**Proposición 5.5**
+Si $dimV=n$ y $W \le V \implies dimW \le n$
+
+**Proposición 5.6**
+$dimV=n, W\le V \land dimW=dimV \implies W=V$
+
+**Demostración 5.5**
+Sea $\gamma$ base de $W : \gamma$ es un subconjunto l.i. de $V \therefore \exists \beta$ base de $V : \gamma \subseteq \beta \implies dimW=\#Y\le\#\beta=dimV$.
+
+**Demostración 5.6**
+
+**Lema 5.1**
+Sea $V$ un $K$-e.v. (no necesariamente f.g.), $S\subseteq V$, ent. $S$ es base de $V \iff \forall v \in V \exists! (\lambda_{s})_{s\in S} \in K^(S) : v=\sum_{x\in S} \lambda_{x}x$
+
+*Nota: $(\lambda_{s})$ (entre parentesis) significa que casi todos son cero.*
+
+**Demostración 5.1 $(\implies)$**
+Si $S$ es base y $v\in V$, existen los $\lambda_{s}$ pues $\mathcal{L}(S)=V$, y ademas es unico si tambien $v=\sum_{\alpha\in S} \mu_{x}x$
+
+$\therefore \sum_{\alpha\in S} (\mu_{x} - \lambda_{x})x=0$
+$\therefore \mu_{x}-\lambda_{x}=0 \forall x\in S$ (pues $S$ es l.i.)
+$\therefore \mu_{x}=\lambda_{x}\forall x\in S$
+$\therefore (\mu_{x})_{x\in S} = (\lambda_{x})_{x \in S}$
+$\therefore$ es unico.
+
+**Demostración 5.1 $(\impliedby)$** (sup. la condicion del lema)
+$\therefore \mathcal{L}(S)=V$ (por la existencia)
+
+Sup. que $\exists$ c.l. tal que $0= \sum_{x\in S} \lambda_{x}x = \sum_{x\in S} 0x$ 
+
+Por la unicidad, $\lambda_{x}=0 \forall x\in S \therefore S$ l.i.
+
+**Definición 5.2** Si $\beta= \{ v_{1},v_{2},\dots,v_{n} \}$ es una base (ordenada) de $V$ y $w\in V$, ent. la unica n-ada ordenada $(a_{1}, a_{2}, \dots, a_{n}) \in K^n$ tal que $W=\sum^n_{i=1} a_{i}w_{i}$ se llama el vector de coordenadas de $W$ con respecto a la base $\beta$.
+
+**Obs. 5.2** Si $\gamma=\{ e_{1}, e_{2}, \dots, e_{n} \} \subseteq K^n$ es la base canonica de $K_{n}$ y se toma un vector $v\in K^n, [v]_{\gamma} = v$.
+
