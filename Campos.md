@@ -226,3 +226,23 @@ Por la unicidad, $\lambda_{x}=0 \forall x\in S \therefore S$ l.i.
 
 **Obs. 5.2** Si $\gamma=\{ e_{1}, e_{2}, \dots, e_{n} \} \subseteq K^n$ es la base canonica de $K_{n}$ y se toma un vector $v\in K^n, [v]_{\gamma} = v$.
 
+**Obs. 5.3** Si $S \subset K^n$ es finito, tenemos forma de determinar si $S$ es l.i. y para dar una base $\langle S \rangle$. En otros espacios esto puede ser menos simple.
+
+*Ejemplo:* Las funcs. $\{  1, \sin x, \sin 2x, \dots, \sin nx \} \subseteq D [0, 2\pi)$ son l.i. (pero no se pueden probar escalando matrices).
+
+## 6. Sumas y Sumas Directas
+
+**Def. 6.1**  Si $U,W \le V$, ent. la suma de $U, W$ es $U+W = \{ u+w | u \in U, w \in W \}$ (si $W_{i}$ es un subespacio de $V$ para todo $i \in I$, su suma es $\sum_{i \in I} W_{i} = \left\{  \sum_{i \in I} w_{i} \in V | ^{w_{i} \in W_{i} \forall i \in I}_{w_{i} = 0 \dot{\forall} i \in I}  \right\}$
+
+**Obs 6.1** Si $W_{i} \le V \forall i \in I, \sum_{i\in I}W_{i} \le V$, y es el min. subespacio de $V$ que contiene a todos los $W_{i}$ (i.e. el min. que contiene $\cup_{i\in I} W_{i}$, y en otras palabras, $\sum_{i\in I} W_{i} = \mathcal{L}(\cup_{i\in I}W_{i}) \star$), pero el min. subespacio que contiene a un conjunto es el generado.
+
+*Esquema de la dem.*
+1. $\sum_{i\in I} w_{i} + \sum_{i\in I} w_{i}\prime = \sum_{i\in I}(w_{i}, w_{i}\prime)$ 
+   $\lambda \sum_{i\in I} w_{i} = \sum_{i\in I}(\lambda w_{i})$
+   $0 = \sum_{i\in I}0$
+
+**Lema 6.1** Si $W_{i} = \mathcal{L}(G_{i}) \forall i \in I$, sean $G= \cup_{i\in I} G_{i} \le V, W=\sum_{i\in I}W_{i}$, ent. $\mathcal{L}(G) = \sum_{i\in I}W_{i}$
+
+**Dem.** Sea $U$ cualquier subespacio de $V$, $G\subseteq U \iff G_{i} \subseteq U \forall i\in I \iff W_{i} \subseteq U \forall i\in I \iff (\cup_{i\in I}W_{i}) \subseteq U \blacksquare$.
+
+**Def. 6.2** Si $U,W \le V$, decimos que la suma $U+V$ es directa $\iff \forall x\in U+W \exists! u\in U,w\in W:x=u+w$, similarmente si tomamos $W_{i}\le  V \forall i \in I$, la suma $\sum_{i\in I}W_{i}$ es directa $\iff \forall x\in \sum_{i\in I} W_{i} \exists! w_{i}\in W_{i \in I} : x = \sum_{i\in I} w_{i}$
