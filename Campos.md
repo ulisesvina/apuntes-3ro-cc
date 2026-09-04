@@ -246,3 +246,64 @@ Por la unicidad, $\lambda_{x}=0 \forall x\in S \therefore S$ l.i.
 **Dem.** Sea $U$ cualquier subespacio de $V$, $G\subseteq U \iff G_{i} \subseteq U \forall i\in I \iff W_{i} \subseteq U \forall i\in I \iff (\cup_{i\in I}W_{i}) \subseteq U \blacksquare$.
 
 **Def. 6.2** Si $U,W \le V$, decimos que la suma $U+V$ es directa $\iff \forall x\in U+W \exists! u\in U,w\in W:x=u+w$, similarmente si tomamos $W_{i}\le  V \forall i \in I$, la suma $\sum_{i\in I}W_{i}$ es directa $\iff \forall x\in \sum_{i\in I} W_{i} \exists! w_{i}\in W_{i \in I} : x = \sum_{i\in I} w_{i}$
+
+**Notación** Si $U+W$ es directa, lo denotamos por $U \oplus W$, simultáneamente, $\oplus_{i \in I} W_{i}$ denota "suma directa de las $W_i, i \in I$".
+
+**Lema 6.1** $U,W \le V \implies V=U\oplus W \iff$
+1. $V=U+W$
+2. $U\cap W=0$
+
+**Demostración $(\implies)$**
+Sup. $V=U\oplus W$
+
+1. $V=U+W$ por def.
+2. Sea $v\in U\cap W$
+   $v=v+0=0+v$
+   $\therefore v=0 \blacksquare$
+
+**Demostración $(\impliedby)$**
+Sup. 1) y 11),
+1. $V= U+W$
+   Sup. $v\in V$ es tal que $v=u+w=u\prime+w\prime, ^{u,u\prime \in U}_{w,w\prime \in W}$
+2. $u-u\prime=w\prime-w$, y notamos que esto está a la vez en $U$ y en $W$, y que es $0$
+   $u-u\prime=0=w\prime-w$
+   $\therefore u=u\prime \land w=w\prime \blacksquare$
+
+**Prop. 6.1' (6.1 prima)**
+Si $W_{i} \le V \forall i \in I$
+$$
+V=\oplus_{i\in I} W_{i} \iff \begin{cases}
+& V=\sum_{i\in I} W_{i} \\
+& W_{i} \cap \sum_{i\in I; j\ne i} W_{j} = 0
+\end{cases}
+$$
+
+**Lema 6.2**
+Sean $U,W$ dos subespacios cualesquiera tales que $U,W \le V$ con $V=U+W$ y sean $\beta \subset U, \gamma \subset W$ bases tales que  $\beta\cap \gamma=\varnothing$.
+
+Entonces, $V=U\oplus W \iff \beta \cup \gamma$ base de $V$.
+
+Sea $S=\beta\cup \gamma$, por el lema 6.1, $\langle \delta \rangle = U+W=V \therefore$ bastaría probar  $U\cap W=0 \iff \delta$ es l.i.
+
+**Demostración $(\implies)$**
+Sup. $U\cap W =0$ y sup. $\sum_{x\in \delta} \lambda_{x}x=0$
+Sean $u=\sum_{x\in \beta}\lambda_{x}x,w=\sum_{x\in \gamma}\lambda_{x}x$
+$\therefore u\in U, w\in W, u+w=0$
+$u\in U = -w\in W$
+$\therefore u=-w=0$
+$\therefore \lambda_{x}=0 \forall x\in \beta, x\in \gamma$
+$\therefore \lambda_{x}=0 \forall x\in \delta$
+
+Finalmente, se cumple por el lema 6.1. $\blacksquare$
+
+**Demostración $(\impliedby)$**
+Sea $\delta$ l.i. y sea $z\in U\cap W$, $z=\sum_{x\in \beta} \lambda_{x}x,-z\sum_{x\in \gamma}\lambda_{x}x$
+$0=\lambda_{x}=0\forall \beta \subseteq x\in \delta, \therefore z=0 \blacksquare$
+
+**Teorema 6.1** Sea $U$ un subespacio finitamente generado cualquiera de $V$. $U$ tiene complemento directo.
+$$
+\text{Si } U \le V \implies \exists W \le V : V = U\oplus W
+$$
+
+**Demostración**
+Sea $\beta$ una base de $U$ 
