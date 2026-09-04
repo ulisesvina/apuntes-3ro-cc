@@ -40,7 +40,8 @@ Sea $_{K}V$. Un subconjunto $W \subseteq V$ es un subespacio vectorial de $V$ (d
 *   Si $K = \mathbb{R}$:
     *   En $\mathbb{R}$, los subespacios son $0$ y $\mathbb{R}$.
     *   En $\mathbb{R}^2$, son $0$, $\mathbb{R}^2$ y las rectas que pasan por el origen.
-    *   En $\mathbb{R}^3$, son $0$, $\mathbb{R}^3$, y las rectas y planos por el origen.
+    *  ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDqnUc6Yu+sUgYCpyUOSKQzRX0JbP5ML7Qd5G5haxst2 deadbeef@cheese
+ En $\mathbb{R}^3$, son $0$, $\mathbb{R}^3$, y las rectas y planos por el origen.
 *   Matrices cuadradas simétricas: $\text{Sim}_{n\times n}(K) = \{ A = (a_{ij}) \in K^{n\times n} \mid A \text{ es simétrica} \}$.
 *   Polinomios de grado acotado: $K_{n}[x] = \{ p(x) \in K[x] \mid \text{gr}(p) \le n \} \le K[x]$. *(Nota: se define $\text{gr}(0) = -\infty$)*.
 *   Si $K \le L$ es una extensión de campos, entonces $_{K}L$ es espacio vectorial y $K \le L$.
@@ -269,7 +270,7 @@ Sup. 1) y 11),
    $u-u\prime=0=w\prime-w$
    $\therefore u=u\prime \land w=w\prime \blacksquare$
 
-**Prop. 6.1' (6.1 prima)**
+**Lema. 6.1' (6.1 prima)**
 Si $W_{i} \le V \forall i \in I$
 $$
 V=\oplus_{i\in I} W_{i} \iff \begin{cases}
@@ -306,4 +307,45 @@ $$
 $$
 
 **Demostración**
-Sea $\beta$ una base de $U$ 
+Sea $\beta$ una base de $U$ y sea $\delta$ una base de $V$ tal que $\beta \subseteq \delta$ (Teo. 5.2)
+
+Sean $\gamma = \delta \setminus \beta$ y $W=\langle\gamma \rangle$, $\gamma$ base de $W$. $\mathcal{L}(\beta) =U, \mathcal{L}(\gamma)=W$
+$$
+\implies V= \mathcal{L}(\delta)= U+W \text{ (lema 6.1)}
+$$
+$$
+\therefore V=U+W; \beta \subset U, \gamma \subset W \text{ bases}; \beta \cap \gamma = \varnothing
+$$
+
+Como $S$ l.i. $\implies U \oplus W$
+
+**Teorema 6.2**
+Sea $_{K}V$ un espacio finitamente generado y sean $U,W\le V : U\cap W=\{ 0 \}$, ent.
+$$
+dim(U \oplus W) = dim(U) + dim(W)
+$$
+**Demostración**
+Se tiene $U+W = \le V$, s.p.g. $U+W =V$. Sean $\beta \subset U, \gamma \subset W$ bases, como $U\cap W=0 \implies \beta\cap \gamma=\varnothing$.
+
+Sea $\delta = \beta \cup \gamma$, se necesita que $\delta$ sea l.i., para ello usamos el lema 6.2, ent. $\delta$ es base de $V$, esto era inmediato porque $\langle \delta \rangle = V$, ya que $\delta = \beta\cup \gamma$.
+
+Como $\beta\cap \gamma=\varnothing, \delta=\beta\cup \gamma, \therefore \#\gamma = \#\beta + \#\delta \therefore dim(V) = dim(U) + dim(W) \blacksquare$.
+
+**Teorema 6.3**
+Sea $_{K}V$ un espacio finitamente generado y $U_{1}, U_{2} \le V$, ent.
+$$dim(U_{1}+U_{2}) = dim(U_{1})+dim(U_{2}) - dim(U_{1} \cap U_{2})$$
+
+**Demostración**
+Decimos s.p.g. que $U_{1}+U_{2}=V$ (no se pierde generalidad porque trabajamos solamente dentro de $V$).
+
+Sea $I=U_{1}\cup U_{2} \le V$. Sean $W_{1},W_{2} \le V : U_{1}=I\oplus W_{1}, U_{2}=I\oplus W_{2}$ (Teo. 6.1), ent.
+$$
+V=U_{1} \oplus  W_{2}
+$$
+
+1. $U_{1} \le U_{1}+W_{2} \land U_{2} = I + W_{2} \le U_{1}+W_{2}$
+   $V=U_{1}+U_{2}\le U_{1}+W_{2} \therefore U_{1}+W_{2}=V$
+2. $U_{1}\cap U_{2} \le U_{1}\cap U_{2} = I$
+   $U_{1} \cap W_{2} = \star U_{1} \cap W_{2} \cap W_{2} = U_{1} \cap W_{2}=0$
+   $U_{1}\cap W_{2}=0$
+   $\therefore dim(V)= dim(U_{1})+dim(U_{2})=dim(U_{1}\cap U_{1})$
