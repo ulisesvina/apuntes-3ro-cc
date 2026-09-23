@@ -81,6 +81,8 @@ $$
 2. $\lambda A\cdot B = \lambda(A\cdot B)$
 3. $A\cdot B=B\cdot A$
 
+**Demostración PP 1** Sup. por contradicción que $(A+B)\cdot C \ne A\cdot C + B\cdot C$
+
 **Teorema 2.1**
 1. $A(B+C)=AB+AC \forall A\in K^{m\times n}; B,C \in K^{n\times p}$
 2. $(A+B)C = AC+BC \forall A,B\in K^{m\times n},C\in K^{n\times p}$
@@ -133,8 +135,54 @@ $$
 =\sum_{j\in I_{n};k\in I_{p}} a_{ij}b_{jk}c_{kl}
 $$
 
+### Transpuesta de una matriz
 
-## Matrices Elementales
+**Definición 2.2** Si $A=(a_{ij}) \in K^{m\times n}$, la transpuesta de $A$ es la matriz $A^t \in K^{n\times m}$ definida por $A^t = (b_{ij})$ con $b_{ij} = a_{ji}$.
+
+**Ejemplo:**
+$$
+\begin{pmatrix}
+3 & 2 & 1 \\
+0 & 6 & 5
+\end{pmatrix}^t 
+= 
+\begin{pmatrix}
+3 & 0 \\
+2 & 6 \\
+1 & 5
+\end{pmatrix}
+$$
+
+**Observación 2.2** 
+1. Los renglones de $A^t$ son las columnas de $A$.
+2. Las columnas de $A^t$ son los renglones de $A$.
+3. Sean $A, B \in K^{m\times n}$ y $\lambda \in K$, entonces:
+   $$(A+B)^t = A^t + B^t \quad \text{y} \quad (\lambda A)^t = \lambda (A^t)$$
+
+**Teorema 2.4** Sean $A \in K^{m\times n}$ y $B \in K^{n\times p}$ (por lo que $AB \in K^{m\times p}$), entonces:
+$$(AB)^t = B^t A^t$$
+
+**Demostración 2.4**
+$$[(AB)^t]_{kj} = [AB]_{jk} = A_j \cdot B^k$$
+$$[B^t A^t]_{kj} = B^t_k \cdot (A^t)^j = B^k \cdot A_j$$
+$$\therefore [(AB)^t]_{kj} = [B^t A^t]_{kj} \quad \blacksquare$$
+
+**Observación 2.3** Por el Teorema 2.4, las partes (i) y (ii) del Teorema 1 pueden deducirse una de la otra.
+
+---
+
+### Vectores canónicos e Identidad
+
+**Observación 2.4** Si $e_1, e_2, \dots, e_n$ son los vectores básicos canónicos de $K^n$ y $A = (a_1, a_2, \dots, a_n)$, entonces $e_j \cdot A = a_j \quad (\forall j \in I_n)$.
+
+**Observación 2.5**
+* Si $i \in I_m$ y $A \in K^{m\times n}$, $e_i A = A_i \quad (e_i \in K^{1\times m})$.
+* Si $j \in I_n$ y $A \in K^{m\times n}$, $A e_j = A^j \quad (e_j \in K^{n\times 1})$.
+
+**Definición 2.3** Si $n \in \mathbb{N}$, la matriz identidad de orden $n \times n$ es $I \in K^{n\times n}$ dada por $I = (\delta_{ij})$, donde:
+$$\delta_{xy} = \begin{cases} 1 & \text{si } x = y \\ 0 & \text{si } x \neq y \end{cases} \quad \to \text{Delta de Kronecker}$$
+
+### Matrices Elementales
 **Proposición 3.1** Sean $A,B$ dos matrices tales que $A\in K^{m\times n}, B\in K^{n\times p}$, ent.
 1. Si $A\prime$ se obtiene de $A$ por medio de una operación elemental de renglones, ent. $A\prime B$ se obtiene de $AB$ por medio de la misma op. elem. de renglones.
 2. Si $B\prime$ se obtiene de $B$ por medio de una operación elemental de columnas, ent. $AB\prime$ se obtiene de $AB$ por medio de la misma op. elem. de columnas.
@@ -190,3 +238,84 @@ $$
 9 & 0 & 1 &2
 \end{pmatrix}
 $$
+
+## 4. Matrices Invertibles
+**Definición 4.1** Una matriz $P\in K^{n\times n}$ es invertible si $\exists Q \in K^{n\times n}$ tal que $PQ=QP = I\in K^{n\times n}$
+
+**Observación 4.1** Si $P$ es invertible, la inversa $Q$ es única y se denota $P^{-1}$
+
+**Definición 4.2** El grupo general lineal de índice $n$ sobre $k$ es $Gl_{n}(K) = \{ P \in K^{n\times n} | P \text{ invertible}\}$
+
+**Lema 4.1** Con el producto de matrices, $Gl_{n}(K)$ es un grupo
+
+**Demostración 4.1** *Asociatividad y neutro* El producto de matrices $K^{n\times n}\times K^{n\times n} \to K^{n\times n}$, $(A,B) \mapsto AB$. Se restringe a $Gl_{n}(K)$, pues $A,B \text{ invertible}\implies AB$ también de hecho $(AB)(B^{-1}A^{-1}) = AIA^{-1} = AA^{-1} = I$
+$(B^{-1}A^{-1})(AB)=I, \therefore B^{-1}A^{-1}=(AB)^{-1}$.
+
+
+$$
+Gl_{n}(K)\times Gl_{n}(K)\to Gl_{n}(K)
+$$
+$$
+(A,B)\mapsto AB
+$$
+
+El producto de matrices es asociativo en $K^{n\times n}, \therefore$ también en $Gl_{n}(K), I\in Gl_{n}(K)$ es el neutro multiplicativo.
+
+*Inverso multiplicativo*
+Si $P\in Gl_{n}(K) \implies \exists! P^{-1} : P(P^{-1}) = I = P^{-1}(P)$. También, $P=(P^{-1})^{-1}$ por la unicidad del inverso.
+
+**Observación 4.2** $Gl_{n}(K)$ no es abeliano si $n\ge 2$
+
+*Ejemplo*
+$$
+\begin{pmatrix}
+0 & 1 \\
+0 & 0
+\end{pmatrix}
+\begin{pmatrix}
+0 & 0 \\
+1 & 0
+\end{pmatrix}
+= \begin{pmatrix}
+1 & 0 \\
+0 & 0
+\end{pmatrix}
+$$
+$$
+\begin{pmatrix}
+0 & 0 \\
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+0 & 1 \\
+0 & 0
+\end{pmatrix}
+= \begin{pmatrix}
+0 & 0 \\
+0 & 1
+\end{pmatrix}
+$$
+
+**Observación 4.3** $Gl_{n}(K)$ es el grupo de unidades (de invertibles) de $K^{n\times n}$
+$$
+(K^{n\times n})^{x} = Gl_{n}(K)
+$$
+
+*Nota: "elemental" es equivalente a "elemental por renglones" de tipo 1, 2' o 3*
+
+**Lema 4.2** Sea $E \in K^{n\times n}$ una matriz elemental, ent. $E$ es invertible ($E\in Gl_{n}(K)$) y además, $E^{-1}$ también es elemental y del mismo tipo.
+
+**Demostración 4.2 (todas son del mismo tipo)**
+
+*Operación $T_{1}$*
+Si $E$ intercambia los renglones $r$ y $s$, ent. $E^{-1}=E$, pues intercambiar los renglones en la invertida es volver a ella misma.
+
+*Operación $T_{2}$*
+Si $E$ suma $\lambda \ne 0$ veces el renglón $r$ al $s$, $E^{-1}$ suma $-\lambda$ veces el renglón $r$ al $s$.
+
+*Operación $T_{3}$*
+Si $E$ multiplica el renglón $r$ por un escalar $\lambda\ne 0$, $E^{-1}$ multiplica el renglón r por $\lambda^{-1}$
+
+**Observación** Todas las matrices elementales son invertibles por *Lema 4.2*, y todos los productos (finitos) de matrices elementales son entonces invertibles por *Lema 4.1*. Producto de elementales no es elemental en general.
+
+*todas las invertibles son productos de elementales*
