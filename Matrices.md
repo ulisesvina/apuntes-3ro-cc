@@ -319,3 +319,58 @@ Si $E$ multiplica el renglón $r$ por un escalar $\lambda\ne 0$, $E^{-1}$ multip
 **Observación** Todas las matrices elementales son invertibles por *Lema 4.2*, y todos los productos (finitos) de matrices elementales son entonces invertibles por *Lema 4.1*. Producto de elementales no es elemental en general.
 
 *todas las invertibles son productos de elementales*
+
+**Lema 4.3** Sea $P\in K^{n\times n}$; $E_{1},E_{2},\dots,E_{r}$ elementales. $E_{r},\dots,E_{2}E_{1}P = T$ escalonada, ent. tenemos
+1. $P$ es invertible $\iff T$ es invertible
+2. $T$ es invertible $\iff T_{nn} \ne 0$
+
+**Demostración 4.3.1** Sea $Q:=E_{r}E_{r-1},\dots,E_{1} \in  Gl_{n}(K)$ *(obs. 4.4)*, ent. tenemos que $T=QP$, si $P$ es invertible, $T=QP$ es invertible, pues es el producto de dos invertibles *(lema 4.1)*, y si $T$ es invertible, $P=Q^{-1}T$ invertible.
+
+**Demostración 4.3.2**
+Notamos que si alguna de las entradas diagonales para alguna $i \in I$, entonces todas las restantes son cero (es decir, si $t_{ii} = 0 \implies t_{nn}=0$), $\therefore T_{nn} \ne 0 \iff t_{i}\ne_{0}\forall i \in [1, n]$.
+
+**Demostración 4.3.2 $\implies$** Supongamos que $t_{nn}=0\implies T_{n}=0 \in K_{n}$. Como $TT^{-1} =I$, ent. tenemos $I_{n}=e_{n}=T_{n}T^{-1} = 0T^{-1} = 0$
+
+**Demostración 4.3.2 $\impliedby$** Supongamos $t_{nn}\ne 0, \therefore t_{ii}\ne 0\forall i\in I_{n}$ sean $E_{r+1},E_{r},\dots,E_{s}$ elementales tales que $E_{s},E_{s-1},\dots,E_{r+1}T=I$, ent. $Q_{2}=E_{s}E_{s-1},\dots,E_{r+1}\in Gl_{n}(K) \therefore Q_{2}T=I \therefore T=Q_{2}^{-1}I = Q_{2}^{-1} \in Gl_{n}(K)$
+
+**Proposición 4.1** Sea $P\in K^{n\times n}$, ent. $P\in Gl_{n}(K) \iff P$ es producto de elementales, y si $P$ es invertible, $P^{-1}$ es el producto de las matrices elementales que transforman a $P$ en la identidad $I$.
+
+**Demostración 4.1 $\impliedby$** $\star$ *(obs. 4.4)*
+
+**Demostración 4.1 $\implies$** Si $P$ es invertible, ent. sea $Q=Q_{2}Q_{1}$, *(lema 4.3, dem.)*, y $QP=I$, y tenemos $Q=Q_{2}Q_{1}P$, pero $Q_{1}P = T$, ent. tenemos $Q_{2}T = I$.
+
+**Ejemplo**
+$$
+P=\begin{pmatrix}
+2&3&2 \\
+1&2&3 \\
+3&4&5
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+1&2&3 \\
+2&3&2 \\
+3&4&5
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+1&2&3 \\
+0&-1&-4 \\
+0&-1&-5
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+1&2&3 \\
+0&1&-4 \\
+0&1&5
+\end{pmatrix}
+\sim
+\begin{pmatrix}
+1&2&3 \\
+0&1&4 \\
+0&0&1
+\end{pmatrix}
+$$
+
+Es útil añadir una matriz identidad al lado de cada matriz "original" al aplicar operaciones elementales para llevar un registro de lo que se hace.
+
